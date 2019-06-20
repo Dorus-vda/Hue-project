@@ -27,7 +27,7 @@ function Groen(){
 }
 
 function Bri(){
-  let body = '{"bri": "150"}';
+  let body = '{"bri": 75}';
   sendRequest(1, body);
 }
 
@@ -47,7 +47,9 @@ var aanknop = document.getElementById("aanknop");
 var uitknop = document.getElementById("uitknop");
 var rood = document.getElementById("rood");
 var groen = document.getElementById("groen");
+var bri = document.getElementById("bri");
 aanknop.addEventListener("click", zetAan);
 uitknop.addEventListener("click", zetUit);
 rood.addEventListener("click", Rood);
 groen.addEventListener("click", Groen);
+bri.addEventListener("click", Bri);
