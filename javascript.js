@@ -6,6 +6,14 @@ navigator.getBattery().then(function(battery) {
     console.log("test: " + battery.level);
 });
 
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
 function zetAan(){
   let body = '{"on": true}';
   sendRequest(1, body);
