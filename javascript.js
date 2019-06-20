@@ -2,9 +2,12 @@ const BRIDGE_URL = "192.168.178.172"  // IP adres van de bridge
 const API_KEY = "l1SJ36Y-mE6pM48fRULsOjfFIv2tyV68AWtcXNjB"  //sleutel om de bridge aan te sturen
 const BASE_URL = `http://${BRIDGE_URL}/api/${API_KEY}/lights/` //beginstuk van de url
 
+let batteryParagraph = document.getElementById("BP")
+
 navigator.getBattery().then(function(battery) {
-    console.log("test: " + battery.level);
+    batteryParagraph.innerHTML = "Uw batterij is " + battery.level * 100 + "%" + " reload om te updaten!"
 });
+
 
 function zetAan(){
   let body = '{"on": true}';
