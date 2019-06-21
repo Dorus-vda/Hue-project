@@ -4,10 +4,13 @@ const BASE_URL = `http://${BRIDGE_URL}/api/${API_KEY}/lights/` //beginstuk van d
 
 let batteryParagraph = document.getElementById("BP")
 
-navigator.getBattery().then(function(battery) {
-    batteryParagraph.innerHTML = "Uw batterij is " + battery.level * 100 + "%" + " reload om te updaten!"
-});
+function runBattery() {
+  navigator.getBattery().then(function(battery) {
+      batteryParagraph.innerHTML = "Uw batterij is " + battery.level * 100 + "%" + " reload om te updaten!"
+  });
+}
 
+var update_loop = setInterval(runBattery, 1000);
 
 function zetAan(){
   let body = '{"on": true}';
