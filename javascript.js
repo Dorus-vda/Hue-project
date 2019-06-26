@@ -6,7 +6,7 @@ function runBattery() {
   navigator.getBattery().then(function(battery) {
       batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level) * battery.level * 100 + "% "
   });
-
+}
 
 
 var update_loopbattery = setInterval(runBattery, cleurnverandrn, 1000);
