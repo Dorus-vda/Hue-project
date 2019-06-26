@@ -2,23 +2,15 @@ const BRIDGE_URL = "192.168.178.172"  // IP adres van de bridge
 const API_KEY = "l1SJ36Y-mE6pM48fRULsOjfFIv2tyV68AWtcXNjB"  //sleutel om de bridge aan te sturen
 const BASE_URL = `http://${BRIDGE_URL}/api/${API_KEY}/lights/` //beginstuk van de url
 
-navigator.getBattery().then(function(battery) {
-  battery.level = battery.level;
-    console.log("test: " + battery.level);
-});
+function runBattery() {
+  navigator.getBattery().then(function(battery) {
+      batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level) * battery.level * 100 + "%"
+  });
 
 
-let bright3 = document.getElementById("bright3");
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
-bright3.innerHTML = "je brightness is op dit moment " + slider.value
-
-
+var update_loopbattery = setInterval(runBattery, 1000);
+var update_looplights = setInterval(runBattery, 1000);
 
 function zetAan(){
   let body = '{"on": true}';
