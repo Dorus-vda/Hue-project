@@ -3,9 +3,12 @@ const API_KEY = "l1SJ36Y-mE6pM48fRULsOjfFIv2tyV68AWtcXNjB"  //sleutel om de brid
 const BASE_URL = `http://${BRIDGE_URL}/api/${API_KEY}/lights/` //beginstuk van de url
 
 navigator.getBattery().then(function(battery) {
+  battery.level = battery.level;
     console.log("test: " + battery.level);
 });
 
+
+let bright3 = document.getElementById("bright3");
 var slider = document.getElementById("myRange");
 var output = document.getElementById("demo");
 output.innerHTML = slider.value;
@@ -13,9 +16,16 @@ output.innerHTML = slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value;
 }
+bright3.innerHTML = "je brightness is op dit moment " + slider.value
+
+
 
 function zetAan(){
   let body = '{"on": true}';
+  sendRequest(1, body);
+}
+function brightness(){
+  let body = '{"bri": demo}';
   sendRequest(1, body);
 }
 
