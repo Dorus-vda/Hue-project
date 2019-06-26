@@ -6,7 +6,7 @@ let batteryParagraph = document.getElementById("BP")
 
 function runBattery() {
   navigator.getBattery().then(function(battery) {
-      batteryParagraph.innerHTML = "Uw batterij is " + battery.level * 100 + "%"
+      batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level) * battery.level * 100 + "%"
   });
 }
 
