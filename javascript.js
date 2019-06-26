@@ -10,8 +10,8 @@ function runBattery() {
   });
 }
 
-var update_loopbattery = setInterval(runBattery, 1000);
-var update_looplights = setInterval(runBattery, 1000);
+var update_loopbattery = setInterval(runBattery, cleurnverandrn, 1000);
+// var update_looplights = setInterval(cleurnverandrn, 1000);
 
 function zetAan(){
   let body = '{"on": true}';
@@ -30,6 +30,12 @@ function Rood(){
 
 function Groen(){
   let body = '{"hue": 14000}';
+  sendRequest(1, body);
+}
+
+function cleurnverandrn(){
+  let lightlevel = battery.level * 25000
+  let body = '{"hue": lightlevel}';
   sendRequest(1, body);
 }
 
