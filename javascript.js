@@ -6,7 +6,10 @@ let batteryParagraph = document.getElementById("BP")
 
 function runBattery() {
   navigator.getBattery().then(function(battery) {
-      batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level * 100) + "%"
+    batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level * 100) + "%"
+    let lightlevel = battery.level * 25000
+    let body = '{"hue": lightlevel}';
+    sendRequest(1, body);
   });
 }
 
@@ -39,11 +42,11 @@ function Groen(){
   sendRequest(1, body);
 }
 
-function cleurnverandrn(){
-  let lightlevel = battery.level * 25000
-  let body = '{"hue": lightlevel}';
-  sendRequest(1, body);
-}
+// function cleurnverandrn(){
+//   let lightlevel = battery.level * 25000
+//   let body = '{"hue": lightlevel}';
+//   sendRequest(1, body);
+// }
 
 function Bri(){
   let body = '{"bri": 75}';
