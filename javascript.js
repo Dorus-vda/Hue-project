@@ -22,25 +22,12 @@ function brightness(){
   let body = '{"bri": demo}';
   sendRequest(1, body);
 }
+function bri1(){
+  let body =  '{"bri": }'
+}
 
 function zetUit(){
   let body = '{"on": false}';
-  sendRequest(1, body);
-}
-
-function Rood(){
-  let body = '{"hue": 255}';
-  sendRequest(1, body);
-}
-
-function Groen(){
-  let body = '{"hue": 14000}';
-  sendRequest(1, body);
-}
-
-function cleurnverandrn(){
-  let lightlevel = battery.level * 25000
-  let body = '{"hue": lightlevel}';
   sendRequest(1, body);
 }
 
@@ -63,11 +50,11 @@ function sendRequest(lampNumber, body){
 
 var aanknop = document.getElementById("aanknop");
 var uitknop = document.getElementById("uitknop");
-var rood = document.getElementById("rood");
-var groen = document.getElementById("groen");
 var bri = document.getElementById("bri");
+var bri1 = document.getElementById("bri1");
+var bri2 = document.getElementById("bri2");
 aanknop.addEventListener("click", zetAan);
 uitknop.addEventListener("click", zetUit);
-rood.addEventListener("click", Rood);
-groen.addEventListener("click", Groen);
 bri.addEventListener("click", Bri);
+bri1.addEventListener("click", bri1);
+bri2.addEventListener("click", bri2);
