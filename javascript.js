@@ -8,7 +8,8 @@ function runBattery() {
   navigator.getBattery().then(function(battery) {
     batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level * 100) + "%"
     let lightlevel = battery.level * 25000
-    let body = '{"hue": lightlevel}';
+    let body = `{"hue": ${lightlevel}}`;
+    // let body = '{"hue": ' + lightlevel + '}'
     sendRequest(1, body);
   });
 }
@@ -23,7 +24,7 @@ function zetAan(){
   sendRequest(1, body);
 }
 function brightness(){
-  let body = '{"bri": demo}';
+  let body = '{"bri": 5}';
   sendRequest(1, body);
 }
 
@@ -32,26 +33,11 @@ function zetUit(){
   sendRequest(1, body);
 }
 
-function Rood(){
-  let body = '{"hue": 255}';
-  sendRequest(1, body);
-}
-
-function Groen(){
-  let body = '{"hue": 14000}';
-  sendRequest(1, body);
-}
-
-function cleurnverandrn(){
-  let lightlevel = battery.level * 25000
-  let body = '{"hue": lightlevel}';
-  sendRequest(1, body);
-}
-
-function Bri(){
-  let body = '{"bri": 75}';
-  sendRequest(1, body);
-}
+// function cleurnverandrn(){
+//   let lightlevel = battery.level * 25000
+//   let body = '{"hue": lightlevel}';
+//   sendRequest(1, body);
+// }
 
 function sendRequest(lampNumber, body){
 	let http = new XMLHttpRequest();
@@ -67,11 +53,5 @@ function sendRequest(lampNumber, body){
 
 var aanknop = document.getElementById("aanknop");
 var uitknop = document.getElementById("uitknop");
-var rood = document.getElementById("rood");
-var groen = document.getElementById("groen");
-var bri = document.getElementById("bri");
 aanknop.addEventListener("click", zetAan);
 uitknop.addEventListener("click", zetUit);
-rood.addEventListener("click", Rood);
-groen.addEventListener("click", Groen);
-bri.addEventListener("click", Bri);
