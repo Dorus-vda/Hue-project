@@ -6,12 +6,13 @@ let batteryParagraph = document.getElementById("BP")
 
 function runBattery() {
   navigator.getBattery().then(function(battery) {
-      batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level) * battery.level * 100 + "%"
+      batteryParagraph.innerHTML = "Uw batterij is " + Math.round(battery.level * 100) + "%"
   });
 }
 
 
-var update_loopbattery = setInterval(runBattery, cleurnverandrn, 1000);
+
+var update_loopbattery = setInterval(runBattery, 1000);
 // var update_looplights = setInterval(cleurnverandrn, 1000);
 
 function zetAan(){
