@@ -42,11 +42,11 @@ function Groen(){
   sendRequest(1, body);
 }
 
-// function cleurnverandrn(){
-//   let lightlevel = battery.level * 25000
-//   let body = '{"hue": lightlevel}';
-//   sendRequest(1, body);
-// }
+function cleurnverandrn(){
+  let lightlevel = battery.level * 25000
+  let body = '{"hue": lightlevel}';
+  sendRequest(1, body);
+}
 
 function Bri(){
   let body = '{"bri": 75}';
